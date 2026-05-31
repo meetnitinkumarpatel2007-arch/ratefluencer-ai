@@ -2,31 +2,28 @@
 
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
-import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
-  const router = useRouter();
-
+export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    const { error } = await supabase.auth.signInWithPassword({
+  const handleSignup = async () => {
+    const { error } = await supabase.auth.signUp({
       email,
       password,
     });
-  
+
     if (error) {
       alert(error.message);
     } else {
-      router.push("/dashboard");
+      alert("Account created successfully!");
     }
   };
 
   return (
     <main className="min-h-screen flex items-center justify-center">
       <div className="flex flex-col gap-4 w-80">
-        <h1 className="text-3xl font-bold">Login</h1>
+        <h1 className="text-3xl font-bold">Sign Up</h1>
 
         <input
           type="email"
@@ -43,10 +40,10 @@ export default function LoginPage() {
         />
 
         <button
-          onClick={handleLogin}
+          onClick={handleSignup}
           className="bg-black text-white p-2 rounded"
         >
-          Login
+          Create Account
         </button>
       </div>
     </main>

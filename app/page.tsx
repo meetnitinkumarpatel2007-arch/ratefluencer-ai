@@ -2,28 +2,22 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center gap-6">
-      <h1 className="text-6xl font-bold">
+    <main className="min-h-screen flex flex-col items-center justify-center gap-4">
+      <h1 className="text-5xl font-bold">
         RateFluencer AI 🚀
       </h1>
 
-      <p className="text-gray-500">
-        AI-Powered Influencer Discovery Platform
-      </p>
-
       <div className="flex gap-4">
-        <Link
-          href="/login"
-          className="px-6 py-3 rounded-xl bg-black text-white"
-        >
-          Login
+        <Link href="/login">
+          <button className="px-4 py-2 border rounded">
+            Login
+          </button>
         </Link>
 
-        <Link
-          href="/dashboard"
-          className="px-6 py-3 rounded-xl border"
-        >
-          Dashboard
+        <Link href="/signup">
+          <button className="px-4 py-2 bg-black text-white rounded">
+            Sign Up
+          </button>
         </Link>
       </div>
     </main>
